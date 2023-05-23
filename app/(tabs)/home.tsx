@@ -152,11 +152,11 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   heading: {
-    fontSize: 20,
+    fontSize: 28,
     fontWeight: '800',
   },
   subHeading: {
-    fontSize: 18,
+    fontSize: 24,
     fontWeight: '600',
   },
   textInput: {

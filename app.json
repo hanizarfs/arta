@@ -5,6 +5,23 @@
       "bundler": "metro"
     },
     "name": "arta_app",
-    "slug": "arta_app"
+    "plugins": [
+      [
+        "react-native-document-scanner-plugin",
+        {
+          "cameraPermission": "We need camera access, so you can scan documents"
+        }
+      ]
+    ],
+    "slug": "arta_app",
+    "permissions": "CAMERA_ROLL",
+    "android": {
+      "package": "com.hanizar.arta_app"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "a1d4c5fb-4588-45e9-8b72-9bd89e1b7f30"
+      }
+    }
   }
 }

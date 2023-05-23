@@ -29,28 +29,6 @@ export default () => {
   }, [nowScan]);
 
   const handleSave = async () => {
-    // try {
-    //   const granted = await PermissionsAndroid.request(
-    //     PermissionsAndroid.PERMISSIONS.ACCESS_MEDIA_LOCATION,
-    //     {
-    //       title: 'Scanner Camera Permission',
-    //       message:
-    //         'Scanner needs access to your camera ' +
-    //         'so you can take images.',
-    //       buttonNeutral: 'Ask Me Later',
-    //       buttonNegative: 'Cancel',
-    //       buttonPositive: 'OK',
-    //     },
-    //   );
-    //   if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-    //     const assert = await MediaLibrary.createAssetAsync(scannedImage);
-    //     MediaLibrary.createAlbumAsync('Arta', assert);
-    //   } else {
-    //     console.log('Camera permission denied');
-    //   }
-    // } catch (err) {
-    //   console.warn(err);
-    // }
     const { status } = await Permissions.askAsync(Permissions.MEDIA_LIBRARY);
     if (status === 'granted') {
       const assert = await MediaLibrary.createAssetAsync(scannedImage);
@@ -80,7 +58,14 @@ export default () => {
         style={{ width: '100%', height: '100%' }}
         source={{ uri: scannedImage }}
       />
-    </View>) : (<View><Text>Images</Text></View>)
+    </View>) : (
+    <View>
+      <Text>Images</Text>
+      <TouchableOpacity onPress={handleScan} style={styles.btnContainer}>
+        <Text>Scan Now</Text>
+      </TouchableOpacity>
+    </View>
+  )
   )
 }
 
